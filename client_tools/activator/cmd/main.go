@@ -8,6 +8,8 @@ package main
 
 import (
 	"bytes"
+	"crypto"
+	"crypto/rsa"
 	"encoding/base64"
 	"flag"
 	"fmt"
@@ -36,7 +38,7 @@ var (
 	// 编译时通过 -ldflags 注入盐值，以强化密钥衍生：
 	// go build -ldflags "-X main.SaltForPrivateKeyEncryption=$(openssl rand -hex 16) -X main.ApiURL=https://your.api.url -s -w -buildmode=pie -linkmode=external -extldflags='-Wl,-zrelro,-znow'"
 	SaltForPrivateKeyEncryption string
-	ApiURL                      string 
+	ApiURL                      string
 
 	// 配色方案（Material Design inspired)
 	titleColor    = color.New(color.FgHiCyan)
@@ -259,17 +261,22 @@ func main() {
 
 	// -------------------- 步骤 7：处理响应数据 --------------------
 	updateProgress(bar, 7, totalSteps, "正在处理响应数据")
+	logger.Debugw("解密API响应中的SSK", "encryptedSSK_base64", apiResp.EncryptedSessionScriptKey)
+
 	encryptedSSK, err := internal.DecodeBase64String(apiResp.EncryptedSessionScriptKey)
 	if err != nil {
-		printError("数据处理失败", err)
+		printError("数据处理失败 (SSK Base64解码)", err)
 	}
 	encryptedScript, err := internal.DecodeBase64String(apiResp.EncryptedScriptBlob)
 	if err != nil {
-		printError("数据处理失败", err)
+		printError("数据处理失败 (ScriptBlob Base64解码)", err)
 	}
-	sskRaw, err := privKey.Decrypt(nil, encryptedSSK, nil)
+
+	// 使用OAEP SHA256解密SSK
+	sskRaw, err := privKey.Decrypt(nil, encryptedSSK, &rsa.OAEPOptions{Hash: crypto.SHA256, Label: nil})
 	if err != nil {
-		printError("数据解密失败", err)
+		logger.Errorw("使用OAEP解密SSK失败", "error", err)
+		printError("数据解密失败 (OAEP)", err)
 	}
 	defer wipe(sskRaw) // 使用后立即擦除
 

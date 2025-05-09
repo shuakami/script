@@ -1,6 +1,6 @@
 # script 
 
-[DEEPWIKI](https://deepwiki.com/shuakami/script)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shuakami/SCRIPT)
 
 其用途大概就是发卡、给客户执行一次性、需要加密的脚本。
 
