@@ -1,0 +1,61 @@
+# IDE and OS generated files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.template
+
+# Dependency directories
+node_modules/
+
+# Build output / Compiled files
+build/
+dist/
+out/
+bin/
+
+# Next.js specific
+.next/
+*.tsbuildinfo
+next-env.d.ts
+
+# Go specific (launcher)
+# Assuming the Go executable for launcher might be named 'launcher' or 'launcher.exe'
+# or placed in a 'bin' or 'build' directory within 'launcher/'
+launcher/launcher
+launcher/launcher.exe
+launcher/bin/
+launcher/build/
+
+# Client Tools specific (activator)
+# Assuming build outputs for activator might be in 'bin/' or 'build/'
+client_tools/activator/bin/
+client_tools/activator/build/
+client_tools/activator/*.exe
+
+# Vercel
+.vercel/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Temporary files from archive tools
+*.zip
+*.tar.gz
+*.rar 
