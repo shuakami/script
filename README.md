@@ -1,4 +1,4 @@
-# SCRIPT 
+# script 
 
 [DEEPWIKI](https://deepwiki.com/shuakami/script)
 
