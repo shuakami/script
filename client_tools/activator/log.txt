@@ -1,0 +1,1116 @@
+exit: ÂëΩ‰ª§Ë°åÂèÇÊï∞Áº∫Â§± (token Êàñ install-path)
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HA
+RDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentExcepti 
+   on
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueComm 
+   and
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : Invalid class "MSFT_Firmware"
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidType: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiO 
+   bjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HA
+RDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentExcepti 
+   on
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueComm 
+   and
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : Invalid class "MSFT_Firmware"
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidType: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiO    bjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : Invalid class "MSFT_Firmware"
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidType: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : Invalid class "MSFT_Firmware"
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidType: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : Invalid class "MSFT_Firmware"
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidType: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : Invalid class "MSFT_Firmware"
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidType: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : Invalid class "MSFT_Firmware"
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidType: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : Invalid class "MSFT_Firmware"
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidType: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HA
+RDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentExcepti 
+   on
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueComm 
+   and
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : ÊãíÁªùËÆøÈóÆ 
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiO 
+   bjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : Property BIOSSerialNumber does not exist at path HKEY_LOCAL_MACHINE\HA
+RDWARE\DESCRIPTION\System\BIOS.
+At line:1 char:1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue], PSArgumentExcepti 
+   on
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueComm 
+   and
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : ÊãíÁªùËÆøÈóÆ 
+At line:1 char:1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiO 
+   bjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ 
+BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentExceptio
+    n
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueComm 
+   and
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiO 
+   bjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ 
+BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentExceptio
+    n
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueComm 
+   and
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiO 
+   bjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ 
+BIOSSerialNumber°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentExceptio
+    n
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueComm 
+   and
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false
+GetStandardizedSysInfoV1_1 start, alreadyElevated: false
+getInfoWithElevateWin for info1
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID]
+    success, output: FEFEFEFE-FEFE-FEFE-FEFE-FEFEFEFEFEFE
+
+getInfoWithElevateWin for info2
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_BIOS | Select-Object -ExpandProperty SerialNumber]
+    success, output:  
+
+  attempt 2: powershell [-Command Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS' -Name 'BIOSSerialNumber']
+    error: exit status 1, output: Get-ItemPropertyValue : ¬∑æ∂ HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS ¥¶≤ª¥Ê‘⁄ Ù–‘ BIOSSerialNumbe
+r°£
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-ItemPropertyValue -Path 'HKLM:\HARDWARE\DESCRIPTION\System\BIOS'  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ItemPropertyValue]£¨PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.GetItemPropertyValueCommand
+ 
+
+  attempt 3: powershell [-Command Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware' | Select-Object -ExpandProperty SerialNumber]
+    error: exit status 1, output: Get-WmiObject : æ‹æ¯∑√Œ  
+À˘‘⁄Œª÷√ ––:1 ◊÷∑˚: 1
++ Get-WmiObject -Namespace 'root\cimv2\mdm\dmmap' -Class 'MSFT_Firmware ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject]£¨ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+ 
+
+  all attempts failed for info2, returning unavailable, no elevation needed from this path
+getInfoWithElevateWin for info3
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Manufacturer]
+    success, output: abit
+
+getInfoWithElevateWin for info4
+  attempt 1: powershell [-Command Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model]
+    success, output: H610ITX D4
+
+getInfoWithElevateWin for info5
+  attempt 1: powershell [-Command Get-PhysicalDisk | Where-Object {$_.MediaType -ne 'Unspecified'} | Select-Object -First 1 -ExpandProperty SerialNumber]
+    success, output: AC20250110240063
+
+GetStandardizedSysInfoV1_1, needElevate: false, alreadyElevated: false

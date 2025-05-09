@@ -1,0 +1,11 @@
+start
+start
+after flag.Parse
+after apiURL check
+start
+after flag.Parse
+after apiURL check
+after GetStandardizedSysInfoV1_1
+after log.txt write
+after DeriveSysInfoBindKeyV1_1
+exit: allUnavailable
